@@ -164,8 +164,8 @@ Veja [os problemas investigados e as soluções](docs/TROUBLESHOOTING.md), [as d
 - [DataSources e connection pools no pgJDBC](https://jdbc.postgresql.org/documentation/datasource/)
 - [K3s](https://docs.k3s.io/)
 
-👨‍💻 Autor
-Pablo Dantas
+         👨‍💻 Autor 
+        | Pablo Dantas |
 Infraestrutura | Cloud | DevOps 
 _____________________________________
 
