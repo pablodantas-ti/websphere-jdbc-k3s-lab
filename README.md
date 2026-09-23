@@ -163,10 +163,10 @@ Veja [os problemas investigados e as soluções](docs/TROUBLESHOOTING.md), [as d
 - [Driver PostgreSQL JDBC](https://jdbc.postgresql.org/download/)
 - [DataSources e connection pools no pgJDBC](https://jdbc.postgresql.org/documentation/datasource/)
 - [K3s](https://docs.k3s.io/)
-
+_____________________________________
          👨‍💻 Autor 
         | Pablo Dantas |
-Infraestrutura | Cloud | DevOps 
+      Infraestrutura | Cloud | DevOps 
 _____________________________________
 
 IBM WebSphere, PostgreSQL e seus drivers têm licenças próprias. Este repositório não inclui seus binários nem concede direitos sobre eles. Verifique os termos da imagem IBM antes do uso, especialmente fora do laboratório. Uma licença para os arquivos autorais deste projeto deve ser escolhida pelo responsável pelo repositório.
