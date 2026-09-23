@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "name": "was",
+    "namespace": "websphere"
+  },
+  "spec": {
+    "ports": [
+      {
+        "targetPort": 9043,
+        "name": "console",
+        "port": 9043
+      },
+      {
+        "targetPort": 9443,
+        "name": "app-https",
+        "port": 9443
+      }
+    ],
+    "type": "ClusterIP",
+    "selector": {
+      "app": "was"
+    }
+  },
+  "kind": "Service",
+  "apiVersion": "v1"
+}

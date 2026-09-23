@@ -1,0 +1,7 @@
+*
+!Containerfile
+!*.py
+!*.sh
+!*.java
+!postgresql.jar
+!was-lab.war

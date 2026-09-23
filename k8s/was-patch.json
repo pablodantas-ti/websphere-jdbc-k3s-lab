@@ -1,0 +1,81 @@
+{
+  "spec": {
+    "template": {
+      "spec": {
+        "containers": [
+          {
+            "volumeMounts": [
+              {
+                "readOnly": true,
+                "mountPath": "/run/lab-admin",
+                "name": "lab-admin"
+              },
+              {
+                "readOnly": true,
+                "mountPath": "/run/lab-db",
+                "name": "lab-db"
+              },
+              {
+                "name": "lab-auth-code",
+                "mountPath": "/work/lab/runtime-auth.py",
+                "subPath": "runtime-auth.py",
+                "readOnly": true
+              }
+            ],
+            "command": [
+              "/bin/bash",
+              "/work/lab/start-lab.sh"
+            ],
+            "startupProbe": {
+              "timeoutSeconds": 3,
+              "failureThreshold": 180,
+              "tcpSocket": {
+                "port": 9043
+              },
+              "periodSeconds": 10
+            },
+            "name": "was",
+            "imagePullPolicy": "Never",
+            "args": [],
+            "image": "localhost/was-lab:jdbc-v2"
+          }
+        ],
+        "volumes": [
+          {
+            "secret": {
+              "defaultMode": 292,
+              "secretName": "was-lab-admin"
+            },
+            "name": "lab-admin"
+          },
+          {
+            "secret": {
+              "defaultMode": 292,
+              "secretName": "postgres-lab-auth",
+              "items": [
+                {
+                  "path": "app-password",
+                  "key": "app-password"
+                }
+              ]
+            },
+            "name": "lab-db"
+          },
+          {
+            "name": "lab-auth-code",
+            "configMap": {
+              "name": "was-lab-runtime-auth-v2",
+              "defaultMode": 292
+            }
+          }
+        ],
+        "terminationGracePeriodSeconds": 90
+      }
+    },
+    "strategy": {
+      "rollingUpdate": null,
+      "type": "Recreate"
+    },
+    "progressDeadlineSeconds": 2400
+  }
+}

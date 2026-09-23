@@ -1,0 +1,9 @@
+FROM icr.io/appcafe/websphere-traditional:9.0.5.29
+COPY --chown=was:root postgresql.jar /opt/IBM/WebSphere/AppServer/jdbc/postgresql.jar
+COPY --chown=was:root was-lab.war /work/lab/was-lab.war
+COPY --chown=was:root configure-lab.py runtime-auth.py start-lab.sh DriverCheck.java /work/lab/
+RUN /opt/IBM/WebSphere/AppServer/java/8.0/bin/javac -d /work/lab /work/lab/DriverCheck.java \
+    && /opt/IBM/WebSphere/AppServer/java/8.0/jre/bin/java -cp /work/lab:/opt/IBM/WebSphere/AppServer/jdbc/postgresql.jar DriverCheck \
+    && /opt/IBM/WebSphere/AppServer/bin/wsadmin.sh -lang jython -conntype NONE -f /work/lab/configure-lab.py \
+    && test -f /work/lab/build-ok
+CMD ["/bin/bash", "/work/lab/start-lab.sh"]

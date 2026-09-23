@@ -1,0 +1,26 @@
+# Credentials, local state and generated binaries
+.env
+.env.*
+!.env.example
+*secret*.yaml
+*secret*.json
+PASSWORD
+KEYSTORE_PASSWORD
+security.xml
+*.key
+*.p12
+*.jks
+*.jar
+*.war
+*.tar
+*.tar.gz
+*.zip
+*.part
+*.log
+__pycache__/
+*.pyc
+backups/
+logs/
+was-before-*.yaml
+.DS_Store
+Thumbs.db
